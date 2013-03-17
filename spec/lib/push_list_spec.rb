@@ -14,4 +14,9 @@ describe PushList do
     subject.events_url.should == "https://api.github.com/users/janjiss/received_events"
   end
 
+  it "should create correct adress with if username has changed" do
+    subject.username = "BLauris"
+    subject.events_url.should == "https://api.github.com/users/BLauris/received_events"
+  end
+
 end
