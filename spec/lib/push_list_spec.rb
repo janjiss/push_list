@@ -1,7 +1,17 @@
 require "spec_helper"
 
 describe PushList do
-  it "should intitialize" do
-    PushList.new("janjiss").should be_true
+
+  subject do
+    PushList.new("janjiss")
   end
+
+  it "should intitialize" do
+    subject.should be_true
+  end
+
+  it "should create correct adress with username" do
+    subject.events_url.should == "https://api.github.com/users/janjiss/received_events"
+  end
+
 end
